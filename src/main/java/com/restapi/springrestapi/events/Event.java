@@ -2,6 +2,8 @@ package com.restapi.springrestapi.events;
 
 import lombok.*;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import java.time.LocalDateTime;
 
 @Builder @AllArgsConstructor @NoArgsConstructor
@@ -15,12 +17,13 @@ public class Event {
     private LocalDateTime closeEnrollmentDatetime;
     private LocalDateTime beginEventDateTime;
     private LocalDateTime endEventDateTime;
-    private String location;
-    private int basePrice;
-    private int maxPrice;
+    private String location; //optional
+    private int basePrice;  //optional
+    private int maxPrice;  //optional
     private int limitOfEnrollment;
     private boolean offline;
     private boolean free;
+    @Enumerated(EnumType.STRING)
     private EventStatus eventStatus;
 
 }
